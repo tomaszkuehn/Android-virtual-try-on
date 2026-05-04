@@ -1,0 +1,54 @@
+Plan: Virtual Try-On Android App
+Android app for virtual try-on using qwen-image-2.0 API with fallback overlay when no API key is provided.
+
+Steps
+
+Phase 1: Project Setup
+Create new Android Studio project (Empty Activity, Kotlin, min SDK 24)
+Add dependencies: Retrofit + OkHttp (API calls), Glide/Coil (image loading), CameraX (camera), Activity Result API (gallery)
+Phase 2: UI Layout
+Create activity_main.xml with:
+Two ImageViews for person + clothing preview
+"Select Person Photo" + "Select Clothing Photo" buttons
+EditText for API key input
+"Generate Try-On" button
+Result ImageView + ProgressBar
+Phase 3: Image Selection
+Implement image picker (gallery via ACTION_PICK, camera via CameraX)
+Convert images to Base64 or upload to temp storage for API
+Phase 4: API Integration
+Create Retrofit interface for DashScope API:
+Endpoint: https://dashscope-intl.aliyuncs.com/api/v1/services/aigc/image-generation/generation
+Headers: Authorization: Bearer {API_KEY}
+Model: qwen-image-2.0
+Prompt: "Generate a realistic image showing the person from the first image wearing the dress, shoes, t-shirt, trousers, jewelerry items from the second image. Preserve the pose of the girl. Create a seamless virtual try-on result where the clothing fits naturally on the person."
+Phase 5: Fallback Implementation
+When no API key: overlay clothing on person at 50% scale + 50% opacity using Canvas/Paint
+Phase 6: Testing
+Add error handling, loading states, test with sample images
+Relevant files
+
+app/src/main/java/com/virtualtryon/app/MainActivity.kt — Main UI logic
+app/src/main/java/com/virtualtryon/app/api/DashScopeApi.kt — Retrofit interface
+app/src/main/java/com/virtualtryon/app/utils/ImageUtils.kt — Image processing
+app/src/main/java/com/virtualtryon/app/utils/FallbackProcessor.kt — Fallback overlay
+app/src/main/res/layout/activity_main.xml — Layout
+app/src/main/AndroidManifest.xml — Permissions (CAMERA, READ_MEDIA_IMAGES)
+Verification
+
+Build in Android Studio (no errors)
+Select person + clothing images
+Test without API key → fallback overlay visible
+Test with valid API key → API result displayed
+Test camera capture functionality
+Decisions
+
+Model: qwen-image-2.0 (direct REST API calls from app)
+Image source: Camera + Gallery
+Fallback: 50% scale AND 50% opacity overlay
+Excluded: Backend server, user accounts, image sharing
+Further Considerations
+
+Image Upload: API may require pre-uploaded image URLs — may need temp image hosting
+API Response: Need to verify if API returns image URL or base64 for proper parsing
+Rate Limiting: Consider retry logic for API calls

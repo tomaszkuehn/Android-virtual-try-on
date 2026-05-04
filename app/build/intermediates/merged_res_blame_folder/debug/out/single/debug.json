@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "com.virtualtryon.app-merged_res-43:/layout_activity_main.xml.flat",
+        "source": "com.virtualtryon.app-main-45:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.virtualtryon.app-merged_res-43:/xml_file_paths.xml.flat",
+        "source": "com.virtualtryon.app-main-45:/xml/file_paths.xml"
+    }
+]

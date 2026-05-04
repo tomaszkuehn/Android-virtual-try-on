@@ -1,0 +1,211 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.virtualtryon.app"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- Internet permission for API calls -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:6:5-67
+12-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:7:5-79
+13-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:7:22-76
+14
+15    <!-- Camera permission -->
+16    <uses-permission android:name="android.permission.CAMERA" />
+16-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:10:5-65
+16-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:10:22-62
+17
+18    <!-- Storage permissions for Android 12 and below -->
+19    <uses-permission
+19-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:13:5-14:38
+20        android:name="android.permission.READ_EXTERNAL_STORAGE"
+20-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:13:22-77
+21        android:maxSdkVersion="32" />
+21-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:14:9-35
+22    <uses-permission
+22-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:15:5-16:38
+23        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+23-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:15:22-78
+24        android:maxSdkVersion="32" />
+24-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:16:9-35
+25
+26    <!-- Storage permissions for Android 13 and above -->
+27    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+27-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:19:5-76
+27-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:19:22-73
+28
+29    <!-- Required for CameraX -->
+30    <uses-feature
+30-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:22:5-85
+31        android:name="android.hardware.camera"
+31-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:22:19-57
+32        android:required="false" />
+32-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:22:58-82
+33    <uses-feature
+33-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:23:5-95
+34        android:name="android.hardware.camera.autofocus"
+34-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:23:19-67
+35        android:required="false" />
+35-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:23:68-92
+36
+37    <permission
+37-->[androidx.core:core:1.12.0] C:\Users\Asus\.gradle\caches\transforms-3\808f25e33273cf777e1c687f415f5885\transformed\core-1.12.0\AndroidManifest.xml:22:5-24:47
+38        android:name="com.virtualtryon.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+38-->[androidx.core:core:1.12.0] C:\Users\Asus\.gradle\caches\transforms-3\808f25e33273cf777e1c687f415f5885\transformed\core-1.12.0\AndroidManifest.xml:23:9-81
+39        android:protectionLevel="signature" />
+39-->[androidx.core:core:1.12.0] C:\Users\Asus\.gradle\caches\transforms-3\808f25e33273cf777e1c687f415f5885\transformed\core-1.12.0\AndroidManifest.xml:24:9-44
+40
+41    <uses-permission android:name="com.virtualtryon.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+41-->[androidx.core:core:1.12.0] C:\Users\Asus\.gradle\caches\transforms-3\808f25e33273cf777e1c687f415f5885\transformed\core-1.12.0\AndroidManifest.xml:26:5-97
+41-->[androidx.core:core:1.12.0] C:\Users\Asus\.gradle\caches\transforms-3\808f25e33273cf777e1c687f415f5885\transformed\core-1.12.0\AndroidManifest.xml:26:22-94
+42
+43    <application
+43-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:25:5-53:19
+44        android:allowBackup="true"
+44-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:26:9-35
+45        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+45-->[androidx.core:core:1.12.0] C:\Users\Asus\.gradle\caches\transforms-3\808f25e33273cf777e1c687f415f5885\transformed\core-1.12.0\AndroidManifest.xml:28:18-86
+46        android:debuggable="true"
+47        android:extractNativeLibs="false"
+48        android:icon="@android:drawable/ic_menu_camera"
+48-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:27:9-56
+49        android:label="@string/app_name"
+49-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:28:9-41
+50        android:roundIcon="@android:drawable/ic_menu_camera"
+50-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:29:9-61
+51        android:supportsRtl="true"
+51-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:30:9-35
+52        android:testOnly="true"
+53        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
+53-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:31:9-74
+54        <activity
+54-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:33:9-41:20
+55            android:name="com.virtualtryon.app.MainActivity"
+55-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:34:13-41
+56            android:exported="true"
+56-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:35:13-36
+57            android:screenOrientation="portrait" >
+57-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:36:13-49
+58            <intent-filter>
+58-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:37:13-40:29
+59                <action android:name="android.intent.action.MAIN" />
+59-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:38:17-69
+59-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:38:25-66
+60
+61                <category android:name="android.intent.category.LAUNCHER" />
+61-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:39:17-77
+61-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:39:27-74
+62            </intent-filter>
+63        </activity>
+64
+65        <!-- FileProvider for Camera -->
+66        <provider
+67            android:name="androidx.core.content.FileProvider"
+67-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:45:13-62
+68            android:authorities="com.virtualtryon.app.fileprovider"
+68-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:46:13-64
+69            android:exported="false"
+69-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:47:13-37
+70            android:grantUriPermissions="true" >
+70-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:48:13-47
+71            <meta-data
+71-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:49:13-51:54
+72                android:name="android.support.FILE_PROVIDER_PATHS"
+72-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:50:17-67
+73                android:resource="@xml/file_paths" />
+73-->D:\kody\git\virtual_try_on_android\app\src\main\AndroidManifest.xml:51:17-51
+74        </provider>
+75        <!--
+76        Service for holding metadata. Cannot be instantiated.
+77        Metadata will be merged from other manifests.
+78        -->
+79        <service
+79-->[androidx.camera:camera-core:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b544f29311ac4e5bf0ee3c0392e8d457\transformed\jetified-camera-core-1.3.1\AndroidManifest.xml:29:9-33:78
+80            android:name="androidx.camera.core.impl.MetadataHolderService"
+80-->[androidx.camera:camera-core:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b544f29311ac4e5bf0ee3c0392e8d457\transformed\jetified-camera-core-1.3.1\AndroidManifest.xml:30:13-75
+81            android:enabled="false"
+81-->[androidx.camera:camera-core:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b544f29311ac4e5bf0ee3c0392e8d457\transformed\jetified-camera-core-1.3.1\AndroidManifest.xml:31:13-36
+82            android:exported="false" >
+82-->[androidx.camera:camera-core:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b544f29311ac4e5bf0ee3c0392e8d457\transformed\jetified-camera-core-1.3.1\AndroidManifest.xml:32:13-37
+83            <meta-data
+83-->[androidx.camera:camera-camera2:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\d5ea645c088111f0af0308fa5b563032\transformed\jetified-camera-camera2-1.3.1\AndroidManifest.xml:30:13-32:89
+84                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+84-->[androidx.camera:camera-camera2:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\d5ea645c088111f0af0308fa5b563032\transformed\jetified-camera-camera2-1.3.1\AndroidManifest.xml:31:17-103
+85                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+85-->[androidx.camera:camera-camera2:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\d5ea645c088111f0af0308fa5b563032\transformed\jetified-camera-camera2-1.3.1\AndroidManifest.xml:32:17-86
+86        </service>
+87
+88        <provider
+88-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\8262367a11bda1b4b9cedc24dd567015\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+89            android:name="androidx.startup.InitializationProvider"
+89-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\8262367a11bda1b4b9cedc24dd567015\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+90            android:authorities="com.virtualtryon.app.androidx-startup"
+90-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\8262367a11bda1b4b9cedc24dd567015\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+91            android:exported="false" >
+91-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\8262367a11bda1b4b9cedc24dd567015\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+92            <meta-data
+92-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\8262367a11bda1b4b9cedc24dd567015\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+93                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+93-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\8262367a11bda1b4b9cedc24dd567015\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+94                android:value="androidx.startup" />
+94-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Asus\.gradle\caches\transforms-3\8262367a11bda1b4b9cedc24dd567015\transformed\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+95            <meta-data
+95-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Asus\.gradle\caches\transforms-3\6e58aba9ea80c97f43caebadf45a7d21\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:29:13-31:52
+96                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+96-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Asus\.gradle\caches\transforms-3\6e58aba9ea80c97f43caebadf45a7d21\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:30:17-78
+97                android:value="androidx.startup" />
+97-->[androidx.lifecycle:lifecycle-process:2.6.2] C:\Users\Asus\.gradle\caches\transforms-3\6e58aba9ea80c97f43caebadf45a7d21\transformed\jetified-lifecycle-process-2.6.2\AndroidManifest.xml:31:17-49
+98            <meta-data
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:29:13-31:52
+99                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+99-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:30:17-85
+100                android:value="androidx.startup" />
+100-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:31:17-49
+101        </provider>
+102
+103        <receiver
+103-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:34:9-52:20
+104            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+104-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:35:13-76
+105            android:directBootAware="false"
+105-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:36:13-44
+106            android:enabled="true"
+106-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:37:13-35
+107            android:exported="true"
+107-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:38:13-36
+108            android:permission="android.permission.DUMP" >
+108-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:39:13-57
+109            <intent-filter>
+109-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:40:13-42:29
+110                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+110-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:17-91
+110-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:41:25-88
+111            </intent-filter>
+112            <intent-filter>
+112-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:43:13-45:29
+113                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+113-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:17-85
+113-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:44:25-82
+114            </intent-filter>
+115            <intent-filter>
+115-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:46:13-48:29
+116                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+116-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:17-88
+116-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:47:25-85
+117            </intent-filter>
+118            <intent-filter>
+118-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:49:13-51:29
+119                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+119-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:17-95
+119-->[androidx.profileinstaller:profileinstaller:1.3.1] C:\Users\Asus\.gradle\caches\transforms-3\b73f95dcac47f9ae79040de29581f1df\transformed\jetified-profileinstaller-1.3.1\AndroidManifest.xml:50:25-92
+120            </intent-filter>
+121        </receiver>
+122    </application>
+123
+124</manifest>

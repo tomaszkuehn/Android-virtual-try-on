@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Virtual Try-On</string>
+    <string name="camera_permission_required">Camera permission is required</string>
+    <string name="cancel">Cancel</string>
+    <string name="choose_from_gallery">Choose from Gallery</string>
+    <string name="clothing_photo_hint">Clothing photo will appear here</string>
+    <string name="enter_api_key">Enter DashScope API Key (optional)</string>
+    <string name="error_api_call">Error calling API</string>
+    <string name="error_processing_image">Error processing image</string>
+    <string name="error_selecting_image">Error selecting image</string>
+    <string name="generate_try_on">Generate Try-On</string>
+    <string name="generating">Generating try-on image...</string>
+    <string name="no_api_key_warning">No API key provided. Using fallback mode (overlay).</string>
+    <string name="person_photo_hint">Person photo will appear here</string>
+    <string name="result_hint">Result will appear here</string>
+    <string name="select_clothing_first">Please select a clothing photo first</string>
+    <string name="select_clothing_photo">Select Clothing Photo</string>
+    <string name="select_person_first">Please select a person photo first</string>
+    <string name="select_person_photo">Select Person Photo</string>
+    <string name="storage_permission_required">Storage permission is required</string>
+    <string name="take_photo">Take Photo</string>
+</resources>

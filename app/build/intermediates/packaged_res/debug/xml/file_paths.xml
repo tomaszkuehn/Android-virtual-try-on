@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- External files directory for camera photos -->
+    <external-files-path
+        name="my_images"
+        path="." />
+    <!-- External cache directory -->
+    <external-cache-path
+        name="my_cache"
+        path="." />
+    <!-- External storage directory -->
+    <external-path
+        name="external_files"
+        path="." />
+</paths>

@@ -1,0 +1,34 @@
+R_DEF: Internal format may change without notice
+local
+id btnGenerate
+id btnSelectClothingCamera
+id btnSelectClothingGallery
+id btnSelectPersonCamera
+id btnSelectPersonGallery
+id etApiKey
+id ivClothing
+id ivPerson
+id ivResult
+id progressBar
+layout activity_main
+string app_name
+string camera_permission_required
+string cancel
+string choose_from_gallery
+string clothing_photo_hint
+string enter_api_key
+string error_api_call
+string error_processing_image
+string error_selecting_image
+string generate_try_on
+string generating
+string no_api_key_warning
+string person_photo_hint
+string result_hint
+string select_clothing_first
+string select_clothing_photo
+string select_person_first
+string select_person_photo
+string storage_permission_required
+string take_photo
+xml file_paths
