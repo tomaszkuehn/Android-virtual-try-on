@@ -342,7 +342,39 @@ class MainActivity : AppCompatActivity() {
         }
 
         val dialog = Dialog(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen)
-        dialog.setContentView(imageView)
+        
+        // Create layout with image and share button
+        val layout = android.widget.LinearLayout(this).apply {
+            orientation = android.widget.LinearLayout.VERTICAL
+            layoutParams = android.view.ViewGroup.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT
+            )
+        }
+        
+        // Add image view
+        val imgParams = android.widget.LinearLayout.LayoutParams(
+            android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+            0,
+            1.0f
+        )
+        layout.addView(imageView, imgParams)
+        
+        // Add share button at bottom
+        val shareButton = android.widget.Button(this).apply {
+            text = "Share Image"
+            setOnClickListener {
+                shareImage()
+                dialog.dismiss()
+            }
+        }
+        val btnParams = android.widget.LinearLayout.LayoutParams(
+            android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+            android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        layout.addView(shareButton, btnParams)
+        
+        dialog.setContentView(layout)
         
         // Ensure dialog fills the entire screen
         dialog.window?.setLayout(
@@ -352,9 +384,42 @@ class MainActivity : AppCompatActivity() {
 
         dialog.show()
 
-        // Close dialog when clicking anywhere on the image
+        // Close dialog when clicking on the image (but not on button)
         imageView.setOnClickListener {
             dialog.dismiss()
+        }
+    }
+
+    private fun shareImage() {
+        try {
+            val drawable = binding.ivResult.drawable
+            if (drawable is android.graphics.drawable.BitmapDrawable) {
+                val bitmap = drawable.bitmap
+                
+                // Save bitmap to cache
+                val file = java.io.File(externalCacheDir, "shared_image_${System.currentTimeMillis()}.jpg")
+                val fos = java.io.FileOutputStream(file)
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 90, fos)
+                fos.close()
+                
+                // Create share intent
+                val uri = FileProvider.getUriForFile(
+                    this,
+                    "$packageName.fileprovider",
+                    file
+                )
+                
+                val shareIntent = Intent(Intent.ACTION_SEND)
+                shareIntent.type = "image/jpeg"
+                shareIntent.putExtra(Intent.EXTRA_STREAM, uri)
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                
+                startActivity(Intent.createChooser(shareIntent, "Share Image"))
+            } else {
+                Toast.makeText(this, "Cannot share this image", Toast.LENGTH_SHORT).show()
+            }
+        } catch (e: Exception) {
+            Toast.makeText(this, "Error sharing image: ${e.message}", Toast.LENGTH_SHORT).show()
         }
     }
 
