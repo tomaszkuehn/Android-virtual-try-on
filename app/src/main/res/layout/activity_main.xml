@@ -33,7 +33,8 @@
             android:id="@+id/ivPerson"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
             android:background="@android:color/darker_gray"
             android:contentDescription="@string/person_photo_hint" />
 
@@ -72,7 +73,8 @@
             android:id="@+id/ivClothing"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
             android:background="@android:color/darker_gray"
             android:contentDescription="@string/clothing_photo_hint" />
 
@@ -100,20 +102,27 @@
         </LinearLayout>
 
         <!-- API Key Input -->
-        <TextView
+        <LinearLayout
+            android:id="@+id/apiKeySection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/enter_api_key"
-            android:textSize="14sp"
-            android:layout_marginBottom="8dp" />
-
-        <EditText
-            android:id="@+id/etApiKey"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_api_key"
-            android:inputType="textPassword"
-            android:layout_marginBottom="16dp" />
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+            
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/enter_api_key"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+            
+            <EditText
+                android:id="@+id/etApiKey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_api_key"
+                android:inputType="textPassword" />
+        </LinearLayout>
 
         <!-- Generate Button -->
         <Button
@@ -145,6 +154,7 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
             android:background="@android:color/darker_gray"
             android:contentDescription="@string/result_hint" />
 

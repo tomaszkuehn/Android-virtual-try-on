@@ -3,11 +3,14 @@ package com.virtualtryon.app
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.app.Dialog
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -127,6 +130,11 @@ class MainActivity : AppCompatActivity() {
         // Generate button
         binding.btnGenerate.setOnClickListener {
             generateTryOn()
+        }
+
+        // Result image click - show full screen
+        binding.ivResult.setOnClickListener {
+            showImageFullScreen()
         }
     }
 
@@ -248,6 +256,8 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.no_api_key_warning, Toast.LENGTH_LONG).show()
             createFallbackImage()
         } else {
+            // Hide API key section after entering valid key
+            binding.apiKeySection.visibility = android.view.View.GONE
             // Call API
             callDashScopeApi(apiKey)
         }
@@ -267,6 +277,37 @@ class MainActivity : AppCompatActivity() {
         } finally {
             binding.progressBar.visibility = android.view.View.GONE
             binding.btnGenerate.isEnabled = true
+        }
+    }
+
+    private fun showImageFullScreen() {
+        val drawable = binding.ivResult.drawable
+        if (drawable == null) {
+            Toast.makeText(this, "No image to display", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Create a full-screen dialog with the image
+        val imageView = ImageView(this).apply {
+            setImageDrawable(drawable)
+            scaleType = ImageView.ScaleType.FIT_CENTER
+            setBackgroundColor(android.graphics.Color.BLACK)
+        }
+
+        val dialog = Dialog(this, android.R.style.Theme_Black_NoTitleBar_Fullscreen)
+        dialog.setContentView(imageView)
+        
+        // Ensure dialog fills the entire screen
+        dialog.window?.setLayout(
+            android.view.ViewGroup.LayoutParams.MATCH_PARENT,
+            android.view.ViewGroup.LayoutParams.MATCH_PARENT
+        )
+
+        dialog.show()
+
+        // Close dialog when clicking anywhere on the image
+        imageView.setOnClickListener {
+            dialog.dismiss()
         }
     }
 
