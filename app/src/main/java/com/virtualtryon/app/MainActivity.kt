@@ -63,9 +63,33 @@ class MainActivity : AppCompatActivity() {
                     }
                     ImageType.CLOTHING -> {
                         clothingImageUri = imageUri
+                        // Just load the image, don't crop automatically
                         loadClothingImage(imageUri)
                     }
                 }
+            }
+        }
+    }
+
+    private val cropLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val data = result.data
+            val croppedUri = data?.getParcelableExtra<Uri>("cropped_uri")
+            if (croppedUri != null) {
+                clothingImageUri = croppedUri
+                loadClothingImage(croppedUri)
+            } else {
+                // If crop returned null, use the original URI
+                clothingImageUri?.let { uri ->
+                    loadClothingImage(uri)
+                }
+            }
+        } else {
+            // If crop was cancelled, use the original URI
+            clothingImageUri?.let { uri ->
+                loadClothingImage(uri)
             }
         }
     }
@@ -83,6 +107,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     ImageType.CLOTHING -> {
                         clothingImageUri = uri
+                        // Just load the image, don't crop automatically
                         loadClothingImage(uri)
                     }
                 }
@@ -125,6 +150,15 @@ class MainActivity : AppCompatActivity() {
         binding.btnSelectClothingCamera.setOnClickListener {
             currentImageType = ImageType.CLOTHING
             checkCameraPermissionAndOpenCamera()
+        }
+
+        // Crop clothing button - manually trigger crop
+        binding.btnCropClothing.setOnClickListener {
+            clothingImageUri?.let { uri ->
+                cropClothingImage(uri)
+            } ?: run {
+                Toast.makeText(this, "Please select a clothing image first", Toast.LENGTH_SHORT).show()
+            }
         }
 
         // Generate button
@@ -231,6 +265,19 @@ class MainActivity : AppCompatActivity() {
             binding.ivClothing.load(uri)
         } catch (e: Exception) {
             Toast.makeText(this, R.string.error_selecting_image, Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun cropClothingImage(uri: Uri) {
+        try {
+            // Use custom CropActivity instead of system crop
+            val cropIntent = Intent(this, CropActivity::class.java)
+            cropIntent.putExtra("image_uri", uri)
+            cropLauncher.launch(cropIntent)
+        } catch (e: Exception) {
+            // If crop fails, just load the image normally
+            loadClothingImage(uri)
+            Toast.makeText(this, "Crop not available, using original image", Toast.LENGTH_SHORT).show()
         }
     }
 

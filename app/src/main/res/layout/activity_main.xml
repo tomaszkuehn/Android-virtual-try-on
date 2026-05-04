@@ -83,7 +83,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="8dp">
 
             <Button
                 android:id="@+id/btnSelectClothingGallery"
@@ -100,6 +100,13 @@
                 android:layout_weight="1"
                 android:text="Camera" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btnCropClothing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Crop Image"
+            android:layout_marginBottom="16dp" />
 
         <!-- API Key Input -->
         <LinearLayout

@@ -40,6 +40,11 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".CropActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
         <!-- FileProvider for Camera -->
         <provider
             android:name="androidx.core.content.FileProvider"
