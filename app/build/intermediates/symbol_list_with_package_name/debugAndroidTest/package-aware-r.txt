@@ -1,3 +1,0 @@
-com.virtualtryon.app.test
-style WhiteBackgroundDialogTheme
-style WhiteBackgroundTheme

@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
 import android.provider.MediaStore
+import androidx.exifinterface.media.ExifInterface
 import java.io.ByteArrayOutputStream
 import java.io.IOException
 
@@ -26,14 +27,50 @@ object ImageUtils {
     }
 
     /**
-     * Load Bitmap from URI
+     * Load Bitmap from URI with EXIF orientation correction
      */
     fun loadBitmapFromUri(context: Context, uri: Uri): Bitmap? {
         return try {
             val contentResolver: ContentResolver = context.contentResolver
+            
+            // First, get the EXIF orientation
+            val inputStreamForExif = contentResolver.openInputStream(uri)
+            val exifInterface = ExifInterface(inputStreamForExif!!)
+            val orientation = exifInterface.getAttributeInt(
+                ExifInterface.TAG_ORIENTATION,
+                ExifInterface.ORIENTATION_NORMAL
+            )
+            inputStreamForExif.close()
+            
+            // Load the bitmap
             val inputStream = contentResolver.openInputStream(uri)
-            BitmapFactory.decodeStream(inputStream)
+            val bitmap = BitmapFactory.decodeStream(inputStream)
+            inputStream?.close()
+            
+            if (bitmap == null) return null
+            
+            // Rotate bitmap based on EXIF orientation
+            val rotationDegrees = when (orientation) {
+                ExifInterface.ORIENTATION_ROTATE_90 -> 90f
+                ExifInterface.ORIENTATION_ROTATE_180 -> 180f
+                ExifInterface.ORIENTATION_ROTATE_270 -> 270f
+                ExifInterface.ORIENTATION_FLIP_HORIZONTAL -> 0f // Handle flip separately if needed
+                ExifInterface.ORIENTATION_FLIP_VERTICAL -> 0f // Handle flip separately if needed
+                else -> 0f
+            }
+            
+            if (rotationDegrees != 0f) {
+                val matrix = Matrix().apply {
+                    postRotate(rotationDegrees)
+                }
+                Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+            } else {
+                bitmap
+            }
         } catch (e: IOException) {
+            e.printStackTrace()
+            null
+        } catch (e: Exception) {
             e.printStackTrace()
             null
         }
