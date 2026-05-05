@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
-    <!-- External files directory for camera photos -->
+    <!-- External files directory for camera photos and cropped images -->
     <external-files-path
         name="my_images"
         path="." />
+    <!-- Specific path for cropped images -->
+    <external-files-path
+        name="cropped_images"
+        path="cropped" />
+    <!-- Specific path for wardrobe images (persistent storage) -->
+    <external-files-path
+        name="wardrobe_images"
+        path="wardrobe" />
     <!-- External cache directory -->
     <external-cache-path
         name="my_cache"
+        path="." />
+    <!-- Internal cache directory -->
+    <cache-path
+        name="internal_cache"
         path="." />
     <!-- External storage directory -->
     <external-path

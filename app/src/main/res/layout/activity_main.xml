@@ -1,169 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:orientation="horizontal">
 
+    <!-- Virtual Wardrobe - Left Side -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:id="@+id/wardrobeSection"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="8dp"
+        android:background="@android:color/darker_gray">
 
-        <!-- Title -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:text="Wardrobe"
+            android:textSize="12sp"
             android:gravity="center"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Person Photo Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/select_person_photo"
-            android:textSize="16sp"
             android:layout_marginBottom="8dp" />
 
+        <!-- Wardrobe Slot 1 -->
         <ImageView
-            android:id="@+id/ivPerson"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:id="@+id/wardrobeSlot1"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
-            android:background="@android:color/darker_gray"
-            android:contentDescription="@string/person_photo_hint" />
+            android:background="@android:color/white"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Wardrobe slot 1"
+            android:tag="0"
+            android:clickable="true"
+            android:focusable="true" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="16dp">
-
-            <Button
-                android:id="@+id/btnSelectPersonGallery"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Gallery"
-                android:layout_marginEnd="8dp" />
-
-            <Button
-                android:id="@+id/btnSelectPersonCamera"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Camera" />
-        </LinearLayout>
-
-        <!-- Clothing Photo Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/select_clothing_photo"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
-
+        <!-- Wardrobe Slot 2 -->
         <ImageView
-            android:id="@+id/ivClothing"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:id="@+id/wardrobeSlot2"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             android:scaleType="fitCenter"
             android:adjustViewBounds="true"
-            android:background="@android:color/darker_gray"
-            android:contentDescription="@string/clothing_photo_hint" />
+            android:background="@android:color/white"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Wardrobe slot 2"
+            android:tag="1"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- Wardrobe Slot 3 -->
+        <ImageView
+            android:id="@+id/wardrobeSlot3"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="@android:color/white"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Wardrobe slot 3"
+            android:tag="2"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- Wardrobe Slot 4 -->
+        <ImageView
+            android:id="@+id/wardrobeSlot4"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="@android:color/white"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Wardrobe slot 4"
+            android:tag="3"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- Wardrobe Slot 5 -->
+        <ImageView
+            android:id="@+id/wardrobeSlot5"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="true"
+            android:background="@android:color/white"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="Wardrobe slot 5"
+            android:tag="4"
+            android:clickable="true"
+            android:focusable="true" />
+
+    </LinearLayout>
+
+    <!-- Main Content - Right Side -->
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fillViewport="true">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
-
-            <Button
-                android:id="@+id/btnSelectClothingGallery"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Gallery"
-                android:layout_marginEnd="8dp" />
-
-            <Button
-                android:id="@+id/btnSelectClothingCamera"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Camera" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnCropClothing"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Crop Image"
-            android:layout_marginBottom="16dp" />
-
-        <!-- API Key Input -->
-        <LinearLayout
-            android:id="@+id/apiKeySection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginBottom="16dp">
-            
+            android:padding="16dp">
+
+            <!-- Title -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/enter_api_key"
-                android:textSize="14sp"
-                android:layout_marginBottom="8dp" />
-            
-            <EditText
-                android:id="@+id/etApiKey"
+                android:text="@string/app_name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Person Photo Section -->
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/enter_api_key"
-                android:inputType="textPassword" />
+                android:text="@string/select_person_photo"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <ImageView
+                android:id="@+id/ivPerson"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@android:color/darker_gray"
+                android:contentDescription="@string/person_photo_hint" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btnSelectPersonGallery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Gallery"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btnSelectPersonCamera"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Camera" />
+            </LinearLayout>
+
+            <!-- Clothing Photo Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/select_clothing_photo"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <ImageView
+                android:id="@+id/ivClothing"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@android:color/darker_gray"
+                android:contentDescription="@string/clothing_photo_hint" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp">
+
+                <Button
+                    android:id="@+id/btnSelectClothingGallery"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Gallery"
+                    android:layout_marginEnd="8dp" />
+
+                <Button
+                    android:id="@+id/btnSelectClothingCamera"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Camera" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnCropClothing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Crop Image"
+                android:layout_marginBottom="16dp" />
+
+            <!-- API Key Input -->
+            <LinearLayout
+                android:id="@+id/apiKeySection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+                
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enter_api_key"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+                
+                <EditText
+                    android:id="@+id/etApiKey"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_api_key"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+
+            <!-- Generate Button -->
+            <Button
+                android:id="@+id/btnGenerate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/generate_try_on"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Progress Bar -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Result Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/result_hint"
+                android:textSize="16sp"
+                android:layout_marginBottom="8dp" />
+
+            <ImageView
+                android:id="@+id/ivResult"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="fitCenter"
+                android:adjustViewBounds="true"
+                android:background="@android:color/darker_gray"
+                android:contentDescription="@string/result_hint" />
+
         </LinearLayout>
-
-        <!-- Generate Button -->
-        <Button
-            android:id="@+id/btnGenerate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/generate_try_on"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Progress Bar -->
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="gone"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Result Section -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/result_hint"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp" />
-
-        <ImageView
-            android:id="@+id/ivResult"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:background="@android:color/darker_gray"
-            android:contentDescription="@string/result_hint" />
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>
